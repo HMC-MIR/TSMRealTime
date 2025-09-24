@@ -17,14 +17,14 @@ GUI app to compare tempo‑modification (TSM) audio algorithms in real time.
   - Ubuntu/Debian: `sudo apt-get install portaudio19-dev`
   - Windows: PyAudio wheels are often available; if build fails, install a prebuilt wheel.
 
-### From PyPI (when published)
+### From PyPI
 ```bash
 pip install tsm-realtime
 ```
 
 Run the app:
 ```bash
-dsp-audio-gui
+tsm-realtime-gui
 ```
 
 ### From source (this repo)
