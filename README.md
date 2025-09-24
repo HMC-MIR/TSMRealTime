@@ -38,7 +38,7 @@ pip install -e .
 
 Run the app:
 ```bash
-dsp-audio-gui
+tsm-realtime-gui
 ```
 
 If you prefer a standard (non‑editable) install from a local build:
@@ -50,7 +50,7 @@ pip install dist/*.whl
 ## Usage
 
 ### CLI entry point
-After install, a console script `dsp-audio-gui` is available. It launches the Tkinter GUI, which allows selecting audio files (e.g., from `app/samples/`) and comparing algorithms.
+After install, a console script `tsm-realtime-gui` is available. It launches the Tkinter GUI, which allows selecting audio files (e.g., from `app/samples/`) and comparing algorithms.
 
 ### Module entry point
 You can also launch via Python:
@@ -85,7 +85,7 @@ python -m twine upload dist/*
 Install from PyPI to verify:
 ```bash
 pip install --no-cache-dir --force-reinstall tsm-realtime
-dsp-audio-gui
+tsm-realtime-gui
 ```
 
 ## Troubleshooting
