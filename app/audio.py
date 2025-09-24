@@ -97,8 +97,7 @@ class EngineBase:
     def reset_state(self):
         logging.info(f'engine reset state')
         
-        self.wf = wave.open(self.filename, 'rb')
-        self.audio_sr = self.wf.getframerate()
+        # self.audio_sr = self.wf.getframerate()
         _, self.audio_sr = lb.load(self.filename, sr=22050)
 
         self.setup_audio_stream()
@@ -140,44 +139,43 @@ class EngineBase:
         raise NotImplementedError("Subclasses must implement _run method")
 
 
-class OLAEngine(EngineBase):
-    def __init__(self, filename, gain=None, on_complete=None):
-        super().__init__(filename, gain, fft_size=256, on_complete=on_complete)
-        self.Hs = self.L // 2
+# class OLAEngine(EngineBase):
+#     def __init__(self, filename, gain=None, on_complete=None):
+#         super().__init__(filename, gain, fft_size=256, on_complete=on_complete)
+#         self.Hs = self.L // 2
         
 
-    def _run(self):
+#     def _run(self):
 
-        num_samples = self.wf.getnframes()
-        pos = 0
+#         num_samples = self.wf.getnframes()
+#         pos = 0
 
-        try:
-            while self.running and pos <= num_samples - self.L:
-                self.wf.setpos(pos)
-                data = self.wf.readframes(self.L)
-                x = np.frombuffer(data, dtype=np.int16)
+#         try:
+#             while self.running and pos <= num_samples - self.L:
+#                 self.wf.setpos(pos)
+#                 data = self.wf.readframes(self.L)
+#                 x = np.frombuffer(data, dtype=np.int16)
 
-                Ha = int(round(self.Hs / self.alpha))
+#                 Ha = int(round(self.Hs / self.alpha))
 
-                analysis_buffer = x * self.window
-                synthesis_buffer = analysis_buffer
+#                 analysis_buffer = x * self.window
+#                 synthesis_buffer = analysis_buffer
 
-                self.output_buffer[:-self.Hs] = self.output_buffer[self.Hs:]
-                self.output_buffer[-self.Hs:] = 0
-                self.output_buffer[:self.L] += synthesis_buffer
+#                 self.output_buffer[:-self.Hs] = self.output_buffer[self.Hs:]
+#                 self.output_buffer[-self.Hs:] = 0
+#                 self.output_buffer[:self.L] += synthesis_buffer
 
-                chunk_to_write = self.output_buffer[:self.Hs]
-                final_chunk = np.clip(chunk_to_write, -1.0, 1.0)
-                self.stream.write(self.float2pcm(final_chunk).astype(np.int16).tobytes())
+#                 chunk_to_write = self.output_buffer[:self.Hs]
+#                 final_chunk = np.clip(chunk_to_write, -1.0, 1.0)
+#                 self.stream.write(self.float2pcm(final_chunk).astype(np.int16).tobytes())
                 
-                pos += Ha
+#                 pos += Ha
 
-        finally:
-            self.close_audio_stream()
-            self.wf.close()
-            self.complete = True
-            if self.on_complete:  # call callback
-                self.on_complete_post()
+#         finally:
+#             self.close_audio_stream()
+#             self.complete = True
+#             if self.on_complete:  # call callback
+#                 self.on_complete_post()
 
 
 class PVEngine(EngineBase):
@@ -186,9 +184,10 @@ class PVEngine(EngineBase):
         self.omega_nom = np.arange(self.L // 2 + 1) * 2 * np.pi * self.audio_sr / self.L
         
     def _run(self):
-        num_samples = self.wf.getnframes()
+        # num_samples = self.wf.getnframes()
         pos = int(random.random() * len(self.window))
         x, sr = lb.load(self.filename, sr=22050)
+        num_samples = len(x)
         x = x[:int(15 * self.audio_sr)]  # Limit to first 15 seconds
 
         
@@ -228,7 +227,7 @@ class PVEngine(EngineBase):
 
         finally:
             self.close_audio_stream()
-            self.wf.close()
+            # self.wf.close()
             self.complete = True
 
 def invert_stft(S, hop_length, window):
@@ -355,7 +354,7 @@ class HybridEngine(EngineBase):
 
         finally:
             self.close_audio_stream()
-            self.wf.close()
+            # self.wf.close()
             self.complete = True
             if self.on_complete:
                 self.on_complete_post()
@@ -518,7 +517,7 @@ class OPTEngine(EngineBase):
                 pos += Ha
         finally:
             self.close_audio_stream()
-            self.wf.close()
+            # self.wf.close()
             self.complete = True
             if self.on_complete:
                 self.on_complete_post()

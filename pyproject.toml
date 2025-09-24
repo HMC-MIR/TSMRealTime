@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tsm-realtime"
-version = "0.1.0"
+version = "0.1.1"
 description = "A GUI application for comparing audio algorithms that modify tempo"
 readme = "README.md"
 requires-python = ">=3.12.3"
@@ -42,7 +42,7 @@ Repository = "https://github.com/HMC-MIR/TSMRealTime"
 Issues = "https://github.com/HMC-MIR/TSMRealTime/issues"
 
 [project.scripts]
-dsp-audio-gui = "app:main"
+tsm-realtime-gui = "app:main"
 
 [tool.setuptools]
 package-dir = {"" = "."}

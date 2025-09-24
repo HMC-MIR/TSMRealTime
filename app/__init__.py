@@ -1,5 +1,5 @@
 """
-DSP Final Project - Audio Algorithm Comparison App
+TSM Real-Time
 
 A GUI application for comparing audio algorithms that modify tempo.
 """
@@ -24,5 +24,5 @@ def main():
     
     logger.info('Finished')
 
-__version__ = "0.1.0"
-__author__ = "DSP Final Project Team"
+__version__ = "0.1.1"
+__author__ = "Sayema Lubis, Clark Peng, Jared Carreno"
