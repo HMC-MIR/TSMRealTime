@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/tsm_realtime/__init__.py
+src/tsm_realtime.egg-info/PKG-INFO
+src/tsm_realtime.egg-info/SOURCES.txt
+src/tsm_realtime.egg-info/dependency_links.txt
+src/tsm_realtime.egg-info/requires.txt
+src/tsm_realtime.egg-info/top_level.txt
+src/tsm_realtime/__pycache__/__init__.cpython-312.pyc

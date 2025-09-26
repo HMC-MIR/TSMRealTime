@@ -1,3 +1,43 @@
+Metadata-Version: 2.4
+Name: tsm-realtime
+Version: 0.1.3
+Summary: Real-time audio time-scale modification with look-up approximation and full computation methods
+Author: Sayema Lubis, Clark Peng, Jared Carreno
+License: MIT
+Project-URL: Homepage, https://github.com/HMC-MIR/TSMRealTime
+Project-URL: Repository, https://github.com/HMC-MIR/TSMRealTime
+Project-URL: Issues, https://github.com/HMC-MIR/TSMRealTime/issues
+Keywords: audio,dsp,tempo,music,real-time
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: pyaudio>=0.2.11
+Requires-Dist: librosa>=0.9.0
+Requires-Dist: pydub>=0.25.0
+Requires-Dist: pynput>=1.8.1
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # TSM Real-Time
 
 A Python library for **real-time audio time-scale modification** using advanced DSP techniques including Phase Vocoder (PV) and Overlap-Add (OLA) methods.
