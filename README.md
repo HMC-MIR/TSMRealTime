@@ -228,6 +228,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - **Sayema Lubis** - *Development and Initial work*
 - **Clark Peng** - *Development*
 - **Jared Carreno** - *Initial work*
+- **TJ Tsai** - *Project Advisor*
 
 ## Acknowledgments
 
